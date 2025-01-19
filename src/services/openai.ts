@@ -1,19 +1,13 @@
 import { OpenAI } from 'openai';
 import { RawLink, RelavantLink, RelevantLinksResponse } from '@/types';
-import dotenv from 'dotenv';
-
-dotenv.config();
-
-if (!process.env.OPENAI_API_KEY) {
-  throw new Error('OPENAI_API_KEY is not defined in environment variables');
-}
+import { config } from '../config';
 
 class OpenAIService {
   private openai: OpenAI;
 
   constructor() {
     this.openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY,
+      apiKey: config.openai.apiKey,
     });
   }
 

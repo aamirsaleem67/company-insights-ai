@@ -16,8 +16,7 @@ class AnalyzerService {
       combinedContent += `${pageType} Content:\n${content}\n\n`;
     });
 
-    const analysis = await this.openaiService.analyzeCompany(combinedContent, position);
-    return analysis;
+    return this.openaiService.analyzeCompany(combinedContent, position.trim().toLowerCase());
   }
 }
 

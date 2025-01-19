@@ -1,6 +1,7 @@
 import puppeteer, { Browser, Page } from 'puppeteer';
 import { ScrapedData, RawLink, RelavantLink } from '@/types';
 import OpenAIService from './openai';
+import cacheService from './cache';
 
 class ScraperService {
   private browserPromise: Promise<Browser>;
@@ -23,6 +24,13 @@ class ScraperService {
   }
 
   async scrapeCompanyContent(url: string): Promise<ScrapedData> {
+    const cacheKey = `scrape:${url}`;
+    const cachedData = cacheService.get<ScrapedData>(cacheKey);
+    if (cachedData) {
+      console.log('Returning cached scraped data for:', url);
+      return cachedData;
+    }
+
     const browser = await this.browserPromise;
     const maxConcurrentScrapes = 5;
 
@@ -41,7 +49,9 @@ class ScraperService {
         ? await this.processBatch(browser, relevantLinks, maxConcurrentScrapes)
         : {};
 
-      return { mainContent, relevantPages: pageContents };
+      const scrapedData = { mainContent, relevantPages: pageContents };
+      cacheService.set(cacheKey, scrapedData);
+      return scrapedData;
     } catch (error) {
       console.error('Scraping error:', error);
       throw error;
