@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Research Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Company Research Assistant</h1>
+        <form id="researchForm">
+            <div class="form-group">
+                <label for="companyUrl">Company Website URL:</label>
+                <input type="url" id="companyUrl" required placeholder="https://company.com">
+            </div>
+            <div class="form-group">
+                <label for="position">Target Position:</label>
+                <input type="text" id="position" required placeholder="Software Engineer">
+            </div>
+            <button type="submit" id="submitBtn">Analyze Company</button>
+        </form>
+        <div id="loadingIndicator" class="hidden">
+            Analyzing company... Please wait...
+        </div>
+        <div id="result" class="hidden">
+            <h2>Analysis Results</h2>
+            <pre id="analysisContent"></pre>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
