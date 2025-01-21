@@ -26,8 +26,8 @@ To start using the Company Research Assistant, follow these steps:
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/yourusername/company-research-assistant.git
-   cd company-research-assistant
+   git clone https://github.com/aamirsaleem67/company-insights-ai.git
+   cd company-insights-ai
    ```
 
 2. **Install Dependencies**:
