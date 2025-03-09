@@ -17,7 +17,7 @@ To start using the Company Research Assistant, follow these steps:
 
 ### Prerequisites
 
-- **Node.js**: Ensure you have Node.js installed on your machine. You can download it from [nodejs.org](https://nodejs.org/).
+- **Node.js (v18)**: Ensure you have Node.js installed on your machine. You can download it from [nodejs.org](https://nodejs.org/).
 - **npm**: Node.js comes with npm, which you'll use to install dependencies.
 - **OpenAI API Key**: Obtain an API key from OpenAI and add it to your environment variables.
 
